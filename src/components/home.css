@@ -1,0 +1,84 @@
+/* Hero Carousel */
+.hero-carousel {
+    height: 500px;
+    overflow: hidden;
+  }
+  
+  .hero-carousel .carousel-content {
+    position: relative;
+  }
+  
+  .hero-carousel img {
+    height: 500px;
+    object-fit: cover;
+    filter: brightness(0.7);
+  }
+  
+  .hero-carousel .carousel-caption {
+    bottom: 30%;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+  }
+  
+  /* Category Cards */
+  .category-card {
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .category-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Book Cards */
+  .book-card {
+    position: relative;
+    transition: all 0.3s;
+    overflow: hidden;
+  }
+  
+  .book-card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+  }
+  
+  .book-card .card-img-top {
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s;
+  }
+  
+  .book-card:hover .card-img-top {
+    transform: scale(1.05);
+  }
+  
+  .book-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    z-index: 1;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-carousel, .hero-carousel img {
+      height: 300px;
+    }
+    
+    .hero-carousel .carousel-caption {
+      bottom: 20%;
+    }
+    
+    .hero-carousel h3 {
+      font-size: 1.5rem;
+    }
+  }

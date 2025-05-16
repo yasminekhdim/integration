@@ -1,0 +1,40 @@
+/* Style de base pour l'application */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #212529;
+  background-color: #f8f9fa;
+}
+
+/* Layout principal */
+.min-vh-100 {
+  min-height: 100vh;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+/* Conteneur principal */
+.main-content {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Liens */
+a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
