@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Container, Row, Col, Card, Spinner, Alert } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button, Spinner, Alert } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './SearchPage.css';
 
 function SearchPage() {
@@ -62,6 +63,9 @@ function SearchPage() {
                 <Card.Body>
                   <Card.Title>{book.titre}</Card.Title>
                   <Card.Text className="text-muted">{book.auteur}</Card.Text>
+                  <Button variant="primary" className="mt-auto" as={Link} to={`/détail/${book._id}`}>
+                  Voir détails
+                </Button>
                 </Card.Body>
               </Card>
             </Col>

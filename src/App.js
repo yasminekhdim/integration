@@ -18,6 +18,8 @@ import Inscription from './components/inscription';
 import ConfirmationPage from './components/Confirmation';
 import OrdersPage from './components/OrdersPage';
 import CartPage from './components/CartPage';
+import BookDetail from './components/bookDetails';
+import CollectionDetail from './components/collectionDetails';
 
 function App() {
   return (
@@ -40,6 +42,8 @@ function App() {
             <Route path="/confirmation" element={<ConfirmationPage />} />
             <Route path="/mes-commandes" element={<OrdersPage />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/détail/:id" element={<BookDetail/>}/>
+            <Route path="/collection/:id" element={<CollectionDetail />} />
           </Routes>
         </Container>
       </main>

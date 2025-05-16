@@ -3,14 +3,13 @@ import axios from 'axios';
 import { Container, Row, Col, Card, Button, Spinner, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
-import { useCart } from '../context/CartContext'; // Ajuste le chemin si besoin
+import { useCart } from '../context/CartContext';
 import './bookList.css';
 
 const BookList = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   const { panier, ajouterAuPanier } = useCart();
 
   useEffect(() => {
@@ -28,23 +27,17 @@ const BookList = () => {
 
   const handleAddToCart = (book) => {
     if (!book) return;
-    console.log(book);
     const livreAjoute = {
       _id: book._id,
       titre: book.titre,
       prix: book.prix || 0,
-      couverture: book.couverture,  // ajout de la couverture ici
+      couverture: book.couverture,
+      exemplaires: book.details?.papier?.nombreExemplaires || 1,
       quantite: 1,
     };
-
     ajouterAuPanier(livreAjoute);
-    console.log('Ajouté au panier :', livreAjoute);
     alert(`"${book.titre}" a été ajouté au panier.`);
   };
-
-  useEffect(() => {
-    console.log("Panier mis à jour :", panier);
-  }, [panier]);
 
   if (loading) return <div className="text-center mt-5"><Spinner animation="border" /></div>;
   if (error) return <Alert variant="danger" className="mt-5 text-center">{error}</Alert>;
@@ -78,9 +71,9 @@ const BookList = () => {
                 </div>
                 <Card.Subtitle className="text-muted mb-2">{book.auteur}</Card.Subtitle>
                 <div className="text-danger fw-bold mb-3">
-                  {book.prix ? `${book.prix.toFixed(2)} €` : 'Non spécifié'}
+                  {book.prix ? `${book.prix.toFixed(2)} DT` : 'Non spécifié'}
                 </div>
-                <Button variant="primary" className="mt-auto" as={Link} to={`/book/${book._id}`}>
+                <Button variant="primary" className="mt-auto" as={Link} to={`/détail/${book._id}`}>
                   Voir détails
                 </Button>
               </Card.Body>
